@@ -1,0 +1,260 @@
+/* Navigation Area*/
+#navigation_area {
+    overflow: hidden;
+    background-color: #000979;
+	display: flex;
+	justify-content: space-between;
+}
+
+.left-links, .right-links {
+    display: flex;
+    align-items: center;
+}
+
+.left-links p, .right-links p {
+    margin: 0;
+}
+
+.right-links {
+    margin-right: 20px; /* Adjust as needed for spacing */
+}
+
+#navigation_area a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#navigation_area a:hover {
+    background-color: #0013FF;
+}
+
+#navigation_area a:active {
+    background-color: #00EBFF; 
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/*body {
+  background-color: #C39553;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}*/
+body {
+  background-image: url("cssimages/nightlife.jpg");
+  background-color: #151947;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family:Arial, Helvetica, sans-serif;
+  color: white;
+}
+/*Aliging images */
+.column {
+    float: left;
+    width: 32%;
+    padding: 5px;
+    text-align: center;
+    height: 200px; /* Set a fixed height for the image container */
+    overflow: hidden; /* Hide any overflow */
+    position: relative; /* Add positioning context */
+    margin-bottom: 20px; /* Add margin between rows */
+}
+
+.column img {
+    width: 100%; /* Ensure the image fills its container */
+    height: auto; /* Allow the image to adjust its height to maintain aspect ratio */
+    object-fit: contain; /* Ensure the entire image is visible within its container while maintaining aspect ratio */
+}
+/*Captions for images */
+.column p {
+    position: absolute;
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
+    background-color: rgba(255, 255, 255, 0.7); 
+    margin: 0;
+    padding: 5px;
+    color: #333;
+    font-size: 14px;
+    text-align: center;
+}
+/*Fonts colours and sizes */
+h1, h2, h3 {
+    font-family: Arial, Helvetica, sans-serif;
+	color: white;
+}
+/*Everything in p tags has a white transparent backdrop for visibility in text */
+p {
+    font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	position: relative;
+}
+p::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+    z-index: -1; /* Move it behind the text */
+}
+/* Form for login */
+form {
+  border: 3px solid #f1f1f1;
+  background-color: white; /* Set background color to white */
+  max-width: 400px; /* Set max-width for the form */
+  margin: 0 auto; /* Center the form horizontally */
+  padding: 20px; /* Add some padding */
+}
+
+/* User inputs for form */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* Avatar image */
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* The "Forgot password" text */
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+}
+/*Glasgow cathedral page layout */
+header {
+    text-align: center;
+}
+
+.top-section, .bottom-section {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+
+.image-container, .text-container {
+    flex: 1;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .top-section, .bottom-section {
+        flex-direction: column;
+    }
+}
+.write-a-review {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px; /* Adjust as needed */
+}
+
+.write-a-review img {
+    max-width: 50%; /* Adjust image width */
+}
+
+.write-a-review {
+    flex: 1;
+    padding: 0 20px; /* Adjust spacing */
+}
+
+.feedback-title {
+	color: black
+}
+.rating {
+  display: inline-block;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  font-size: 30px;
+  color: #ccc;
+  cursor: pointer;
+  padding-right: 5px;
+}
+
+.rating label:before {
+  content: '\2605'; /* Unicode character for a star */
+}
+
+.rating input:checked ~ label:before {
+  content: '\2605'; /* Unicode character for a star */
+  color: #ffcc00; /* Color of filled-in stars */
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 10px;
+}
