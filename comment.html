@@ -10,36 +10,68 @@
             <h1>Glasgow Life</h1>
         </div>
         <div id="navigation_area">
-			<div class="left-links">
-				<p><a href="home.html">Home</a></p>
-				<p><a href="landmarks.html">Landmarks</a></p>
-				<p><a href="home.html">Food</a></p>
-				<p><a href="home.html">Accomodations</a></p>
-				<p><a href="home.html">Reviews</a></p>
-				<p><a href="home.html">Help</a></p>
-			</div>
-			<div class="right-links">
-				<p><a href="home.html">Profile</a></p>
-			</div>
+            <div class="left-links">
+                <p><a href="home.html">Home</a></p>
+                <p><a href="landmarks.html">Landmarks</a></p>
+                <p><a href="food.html">Food</a></p>
+                <p><a href="accommodations.html">Accommodations</a></p>
+                <p><a href="reviews.html">Reviews</a></p>
+                <p><a href="help.html">Help</a></p>
+            </div>
+            <div class="right-links">
+                <p><a href="profile.html">Profile</a></p>
+            </div>
         </div>
-    </div>
     </div>
 
     <div id="content_area">
-        <h3>Review and Rate</h3>
+        <h2>Review and Rate</h2>
     </div>
-	<form action="reviews.html" method="get">
-	  <div class="rating">
-	  <div class="feedback-title">Rate your experience</div>
-		<input type="radio" id="star1" name="rating" value="1"><label for="star1"></label>
-		<input type="radio" id="star2" name="rating" value="2"><label for="star2"></label>
-		<input type="radio" id="star3" name="rating" value="3"><label for="star3"></label>
-		<input type="radio" id="star4" name="rating" value="4"><label for="star4"></label>
-		<input type="radio" id="star5" name="rating" value="5"><label for="star5"></label>
-	  </div>
-	  <textarea id="comment" name="comment" placeholder="Write your comment here..."></textarea>
-	  <button type="submit">Submit</button>
-	</form>
+    <form id="ratingForm" action="reviews.html" method="get">
+      <div class="rating">
+        <div class="feedback-title">Rate your experience</div>
+        <input type="radio" id="star1" name="rating" value="1"><label for="star1"></label>
+        <input type="radio" id="star2" name="rating" value="2"><label for="star2"></label>
+        <input type="radio" id="star3" name="rating" value="3"><label for="star3"></label>
+        <input type="radio" id="star4" name="rating" value="4"><label for="star4"></label>
+        <input type="radio" id="star5" name="rating" value="5"><label for="star5"></label>
+      </div>
+      <textarea id="comment" name="comment" placeholder="Write your comment here..."></textarea>
+      <!-- Add cancel button -->
+      <button type="submit">Submit</button>
+      <button id="cancelButton" type="button" onclick="cancelReview()">Cancel</button>
+    </form>
 
+    <script>
+        // Function to save rating and comment to Local Storage
+        function saveRatingAndComment() {
+            const ratingForm = document.getElementById('ratingForm');
+            const rating = ratingForm.querySelector('input[name="rating"]:checked');
+            const comment = ratingForm.querySelector('textarea[name="comment"]').value;
+
+            // Check if both rating and comment are provided
+            if (rating && comment) {
+                // Save rating and comment to Local Storage
+                localStorage.setItem('userRating', JSON.stringify({
+                    rating: rating.value,
+                    comment: comment
+                }));
+            } else {
+                alert('Please provide both a rating and a comment.');
+            }
+        }
+
+        // Function to cancel the review and redirect to the previous page
+        function cancelReview() {
+            window.history.back(); // Go back to the previous page
+        }
+
+        // Attach saveRatingAndComment function to form submit event
+        document.getElementById('ratingForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            saveRatingAndComment(); // Save rating and comment to Local Storage
+            window.location.href = 'reviews.html'; // Redirect to review page
+        });
+    </script>
 </body>
 </html>

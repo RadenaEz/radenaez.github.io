@@ -1,31 +1,63 @@
+<!DOCTYPE html>
 <html>
-<div id="page_area">
 <head>
     <title>Glasgow Life</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <div id="title_area">
-        <h1>Glasgow Life</h1>
+    <div id="page_area">
+        <div id="title_area">
+            <h1>Glasgow Life</h1>
+        </div>
+        <div id="navigation_area">
+            <div class="left-links">
+                <p><a href="home.html">Home</a></p>
+                <p><a href="landmarks.html">Landmarks</a></p>
+                <p><a href="food.html">Food</a></p>
+                <p><a href="accommodations.html">Accommodations</a></p>
+                <p><a href="reviews.html">Reviews</a></p>
+                <p><a href="help.html">Help</a></p>
+            </div>
+            <div class="right-links">
+                <p><a href="profile.html">Profile</a></p>
+            </div>
+        </div>
     </div>
-    <div id="navigation_area">
-		<div class="left-links">
-			<p><a href="home.html">Home</a></p>
-			<p><a href="landmarks.html">Landmarks</a></p>
-			<p><a href="home.html">Food</a></p>
-			<p><a href="home.html">Accomodations</a></p>
-			<p><a href="home.html">Reviews</a></p>
-			<p><a href="home.html">Help</a></p>
-		</div>
-		<div class="right-links">
-			<p><a href="home.html">Profile</a></p>
-		</div>
+    <div id="content_area">
+        <h2>User Reviews</h2>
+        <h3>Thank you for your review! Why don't you check out what other users had to say about this landmark.</h3>
+        <div id="userReviews">
+            <!-- User reviews will be dynamically inserted here -->
+        </div>
     </div>
-	<div id = "content_area">
-		<h3>User Reviews</h3>
-		<p>Thank you for your review! Why don't you check out what other users had to say about this landmark.</p>
-	</div>
-	<img src="images/usercomments.jpg" alt="User Comments">
+    <!-- <img src="images/usercomments.jpg" alt="User Comments"> -->
+
+    <script>
+    function displayUserReviews() {
+        const username = localStorage.getItem('username');
+        const userReviews = JSON.parse(localStorage.getItem('userRating'));
+        if (userReviews) {
+            const userReviewsDiv = document.getElementById('userReviews');
+            const reviewDiv = document.createElement('div');
+            reviewDiv.classList.add('user-review');
+            const usernamePara = document.createElement('p');
+            usernamePara.textContent = `User: ${username}`;
+
+            const ratingPara = document.createElement('p');
+            ratingPara.textContent = `Rating: ${userReviews.rating}`;
+
+            const commentPara = document.createElement('p');
+            commentPara.textContent = `Comment: ${userReviews.comment}`;
+
+            reviewDiv.appendChild(usernamePara);
+            reviewDiv.appendChild(ratingPara);
+            reviewDiv.appendChild(commentPara);
+
+            userReviewsDiv.appendChild(reviewDiv);
+        }
+    }
+
+    window.addEventListener('load', displayUserReviews);
+	</script>
 </body>
-</div>
 </html>

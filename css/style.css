@@ -258,3 +258,27 @@ textarea {
 button {
   margin-top: 10px;
 }
+
+/* Add this CSS to your existing CSS file */
+
+.user-review {
+    background-color: #f8f8f8; /* Background color of the review box */
+    border: 1px solid #ddd; /* Border around the review box */
+    padding: 10px; /* Padding inside the review box */
+    margin-bottom: 10px; /* Margin between each review */
+    border-radius: 5px; /* Rounded corners for the review box */
+}
+
+.user-review p {
+    margin: 0; /* Remove default margin for paragraphs inside the review box */
+}
+
+.user-review p:first-child {
+    font-weight: bold; /* Make the first paragraph (rating) bold */
+}
+
+#cancelButton {
+            background-color: red;
+            color: white;
+            margin-right: 10px; /* Add margin to separate from the submit button */
+        }
